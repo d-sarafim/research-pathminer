@@ -1,0 +1,31 @@
+# input and output directories (path to project)
+inputDir: /diego/Input/
+outputDir: /diego/Output
+
+# parse JavaScript files with ANTLR parser
+parser:
+  name: antlr
+  languages: [js]
+
+# set filters to exclude certain trees.
+filters:
+  - name: by tree size  # exclude the trees that have > 2000 nodes
+    maxTreeSize: 2000
+  - name: by words number
+    maxTokenWordsNumber: 1000
+
+# use folder names as labels
+label:
+  name: folder name
+
+# save to disk ASTs in the code2vec format
+storage:
+  name: code2vec
+  maxPathLength: 10
+  maxPathWidth: 2
+  maxTokens: 1000 # can be omitted
+  maxPaths: 1000 # can be omitted
+  maxPathContextsPerEntity: 200 # can be omitted
+
+# number of threads used for parsing (the default is one thread)
+numOfThreads: 4
